@@ -118,3 +118,11 @@ If you discover an issue with the code, please open an issue or submit a pull re
 This code is released under the **Creative Commons Attribution–NonCommercial 4.0 International License (CC BY-NC 4.0)**.
 
 See the LICENSE file for details.
+
+## Citation
+
+If you use this code in teaching or research, please cite:
+
+Miguel Vargas Martin,  
+*Practical Cryptography: From Classical Ciphers to Post-Quantum Standards*,  
+2026.
