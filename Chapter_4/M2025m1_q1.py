@@ -39,7 +39,7 @@ def getPlaintext():
         infile.close()
         return message
     except:
-        print('An error occured')
+        print('An error occurred')
         return b'None'
 
 # Cryptographic backend abstraction (OpenSSL underneath)
@@ -200,7 +200,7 @@ CTR dec		2.576 ms CBC consistently beats CTR. This is most likely implementation
 GCM dec		2.668 ms GCM requires the GHASH calculation. 
 XTS dec		 2.681 ms After a few observations, no clear winner between XTS and GCM.
 ChaCha20 dec 3.326 ms If you run the code in a hardware-optimized AES machine, it is likely that AES will outperform non-AES algorithms.
-ECB dec		4.026 ms The weakness of sequantiality.
+ECB dec		4.026 ms The weakness of sequentiality.
 OFB dec		6.238 ms OFB may be pre-computable but not parallelizable.
 CFB dec		6.900 ms CFB may be parallelizable once ciphertext is available, but it is not pre-computable.
 RC4 dec		11.519 ms If you run the code in a hardware-optimized AES machine, it is likely that AES will outperform non-AES algorithms.
