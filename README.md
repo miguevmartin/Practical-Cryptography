@@ -3,7 +3,7 @@
 
 © 2026 Miguel Vargas Martin
 
-This repository contains the **Python and Java source code** accompanying the book:
+This repository contains the Python and Java source code accompanying the book:
 
 **Practical Cryptography: From Classical Ciphers to Post-Quantum Standards**  
 by **Miguel Vargas Martin**
@@ -13,7 +13,7 @@ The programs included here correspond to examples, demonstrations, and exercises
 ---
 
 ## Purpose of This Repository
-The code is intended to support **learning and experimentation in applied cryptography**. It provides practical implementations of cryptographic concepts discussed in the text, including:
+The code is intended to support learning and experimentation in applied cryptography. It provides practical implementations of cryptographic concepts discussed in the text, including:
 
 - Classical cryptography examples
 - Symmetric encryption (AES and modes of operation)
@@ -22,24 +22,24 @@ The code is intended to support **learning and experimentation in applied crypto
 - Number-theoretic algorithms used in cryptography
 - Post-quantum cryptography (ML-KEM / Kyber and ML-DSA / Dilithium)
 
-The goal of these examples is to help readers understand **how cryptographic algorithms work in practice**.
+The goal of these examples is to help readers understand how cryptographic algorithms work in practice.
 
 ---
 
 ## Educational Use
-The code in this repository is provided **for educational and non-commercial purposes**. It may be freely used for:
+The code in this repository is provided for educational and non-commercial purposes. It may be freely used for:
 
 - personal learning
 - university courses
 - classroom demonstrations
 - academic experimentation
 
-Users are welcome to modify and adapt the programs for **teaching and research purposes**, provided appropriate credit is given.
+Users are welcome to modify and adapt the programs for teaching and research purposes, provided appropriate credit is given.
 
 ---
 
 ## Important Security Notice
-These programs are designed primarily for **instructional clarity**, not for production deployment.
+These programs are designed primarily for instructional clarity, not for production deployment.
 
 Some examples intentionally demonstrate:
 
@@ -47,7 +47,7 @@ Some examples intentionally demonstrate:
 - deprecated algorithms
 - simplified implementations
 
-These cases are included to illustrate **important cryptographic pitfalls**.
+These cases are included to illustrate important cryptographic pitfalls.
 
 **This code should not be used directly in production systems.**
 
