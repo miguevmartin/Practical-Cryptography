@@ -4,7 +4,7 @@
  * Compare the times obtained from Exercise 10.7 against
  * a 2048-bit RSA signature.
  *
- * Modified: March 2026
+ * Modified: November 2026
  * Author: ChatGPT and adapted by Miguel Vargas Martin
  *
  * This program benchmarks:
@@ -42,7 +42,7 @@ public class SignatureComparison {
         long startSign, endSign;
         long startVerify, endVerify;
 
-        long keyGenTime, signTime, verifyTime;
+        double keyGenTime, signTime, verifyTime;
 
         KeyPairGenerator kpg;
         KeyPair kp;
@@ -65,7 +65,7 @@ public class SignatureComparison {
         startKey = System.nanoTime();
         kp = kpg.generateKeyPair();
         endKey = System.nanoTime();
-        keyGenTime = (endKey - startKey) / 1_000_000;
+        keyGenTime = (endKey - startKey) / 1e6;
 
         signer = Signature.getInstance("MLDSA", "BC");
         signer.initSign(kp.getPrivate());
@@ -73,7 +73,7 @@ public class SignatureComparison {
         signer.update(message);
         signature = signer.sign();
         endSign = System.nanoTime();
-        signTime = (endSign - startSign) / 1_000_000;
+        signTime = (endSign - startSign) / 1e6;
 
         verifier = Signature.getInstance("MLDSA", "BC");
         verifier.initVerify(kp.getPublic());
@@ -81,7 +81,7 @@ public class SignatureComparison {
         verifier.update(message);
         valid = verifier.verify(signature);
         endVerify = System.nanoTime();
-        verifyTime = (endVerify - startVerify) / 1_000_000;
+        verifyTime = (endVerify - startVerify) / 1e6;
 
         System.out.println("Public Key Generation Time: " + keyGenTime + " ms");
         System.out.println("Signing Time: " + signTime + " ms");
@@ -104,7 +104,7 @@ public class SignatureComparison {
         startKey = System.nanoTime();
         kp = kpg.generateKeyPair();
         endKey = System.nanoTime();
-        keyGenTime = (endKey - startKey) / 1_000_000;
+        keyGenTime = (endKey - startKey) / 1e6;
 
         signer = Signature.getInstance("MLDSA", "BC");
         signer.initSign(kp.getPrivate());
@@ -112,7 +112,7 @@ public class SignatureComparison {
         signer.update(message);
         signature = signer.sign();
         endSign = System.nanoTime();
-        signTime = (endSign - startSign) / 1_000_000;
+        signTime = (endSign - startSign) / 1e6;
 
         verifier = Signature.getInstance("MLDSA", "BC");
         verifier.initVerify(kp.getPublic());
@@ -120,7 +120,7 @@ public class SignatureComparison {
         verifier.update(message);
         valid = verifier.verify(signature);
         endVerify = System.nanoTime();
-        verifyTime = (endVerify - startVerify) / 1_000_000;
+        verifyTime = (endVerify - startVerify) / 1e6;
 
         System.out.println("Public Key Generation Time: " + keyGenTime + " ms");
         System.out.println("Signing Time: " + signTime + " ms");
@@ -143,7 +143,7 @@ public class SignatureComparison {
         startKey = System.nanoTime();
         kp = kpg.generateKeyPair();
         endKey = System.nanoTime();
-        keyGenTime = (endKey - startKey) / 1_000_000;
+        keyGenTime = (endKey - startKey) / 1e6;
 
         signer = Signature.getInstance("MLDSA", "BC");
         signer.initSign(kp.getPrivate());
@@ -151,7 +151,7 @@ public class SignatureComparison {
         signer.update(message);
         signature = signer.sign();
         endSign = System.nanoTime();
-        signTime = (endSign - startSign) / 1_000_000;
+        signTime = (endSign - startSign) / 1e6;
 
         verifier = Signature.getInstance("MLDSA", "BC");
         verifier.initVerify(kp.getPublic());
@@ -159,7 +159,7 @@ public class SignatureComparison {
         verifier.update(message);
         valid = verifier.verify(signature);
         endVerify = System.nanoTime();
-        verifyTime = (endVerify - startVerify) / 1_000_000;
+        verifyTime = (endVerify - startVerify) / 1e6;
 
         System.out.println("Public Key Generation Time: " + keyGenTime + " ms");
         System.out.println("Signing Time: " + signTime + " ms");
@@ -182,7 +182,7 @@ public class SignatureComparison {
         startKey = System.nanoTime();
         kp = kpg.generateKeyPair();
         endKey = System.nanoTime();
-        keyGenTime = (endKey - startKey) / 1_000_000;
+        keyGenTime = (endKey - startKey) / 1e6;
 
         PSSParameterSpec pssSpec = new PSSParameterSpec(
             "SHA-256",
@@ -199,7 +199,7 @@ public class SignatureComparison {
         signer.update(message);
         signature = signer.sign();
         endSign = System.nanoTime();
-        signTime = (endSign - startSign) / 1_000_000;
+        signTime = (endSign - startSign) / 1e6;
 
         verifier = Signature.getInstance("RSASSA-PSS");
         verifier.setParameter(pssSpec);
@@ -208,7 +208,7 @@ public class SignatureComparison {
         verifier.update(message);
         valid = verifier.verify(signature);
         endVerify = System.nanoTime();
-        verifyTime = (endVerify - startVerify) / 1_000_000;
+        verifyTime = (endVerify - startVerify) / 1e6;
 
         System.out.println("Public Key Generation Time: " + keyGenTime + " ms");
         System.out.println("Signing Time: " + signTime + " ms");

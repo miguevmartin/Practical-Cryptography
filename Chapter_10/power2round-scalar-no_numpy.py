@@ -1,7 +1,7 @@
 """
 Demo of power2round function for scalars
 
-Last modified: March 2026
+Last modified: November 2026
 Author: Original code by Gemini and adapted by Miguel Vargas Martin
 """
 
@@ -12,6 +12,7 @@ def power2round_scalar(r, d, q):
     Standard Power2Round for a single integer.
     r_0 is the centered remainder: -2^(d-1) < r0 <= 2^(d-1)
     """
+    r = r % q  # ensure r is in [0, q-1]
     two_d = 1 << d
     half_two_d = 1 << (d - 1)
     
@@ -28,7 +29,7 @@ def power2round_scalar(r, d, q):
 q = 23
 d = 3
 
-example = random.randint(0, q)
+example = random.randint(0, q-1)
 
 r1, r0 = power2round_scalar(example, d, q)
 

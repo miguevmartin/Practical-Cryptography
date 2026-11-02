@@ -1,7 +1,7 @@
 """
 Demo of power2round function for vector of polynomials in Rq^k
 
-Last modified: March 2026
+Last modified: November 2026
 Author: Original code by Gemini and adapted by Miguel Vargas Martin
 """
 
@@ -14,6 +14,8 @@ def power2round_vector_numpy(vector_coeffs, d, q):
     """
     # Ensure input is a numpy array and reduced mod q
     r = np.array(vector_coeffs) % q
+    two_d = 1 << d
+    half_two_d = 1 << (d - 1)
     
     # The logic is identical; NumPy handles the (k, n) shape automatically
     r0 = ((r + half_two_d - 1) % two_d) - half_two_d + 1
@@ -33,9 +35,6 @@ d = 3
 n = 5
 k = 2
 
-two_d = 1 << d
-half_two_d = 1 << (d - 1) 
-
 # Create a random vector of k polynomials, each of degree n-1
 # Shape: (6, 256)
 vector_r = np.random.randint(0, q, size=(k, n))
@@ -54,5 +53,7 @@ print(f"Vector Shape: {vector_r.shape}")
 print(f"All {k*n} coefficients correctly decomposed: {all_match}")
 
 # Check specific bounds for ML-DSA
+two_d = 1 << d
+half_two_d = 1 << (d - 1)
 print(f"Max r0: {v0.max()} (Should be <= {half_two_d})")
 print(f"Min r0: {v0.min()} (Should be > -{half_two_d})")

@@ -3,12 +3,12 @@
  *
  *
  * Author: Adapted by Miguel Vargas Martin from ChatGPT iterations
- * Last Modified: March 2026
+ * Last Modified: November 2026
  *
- * This example illustrates:
- *   1. Key generation
- *   2. Structure of the public key
- *   3. How the public seed (rho) is embedded
+ * This example compares, for ML-DSA-44, ML-DSA-65 and ML-DSA-87:
+ *   1. Key generation time
+ *   2. Signing and verification time
+ *   3. Signature size
  */
  
 package MLDSABenchmark;
@@ -50,7 +50,7 @@ public class MLDSABenchmark {
         long startKey = System.nanoTime();
         KeyPair kp = kpg.generateKeyPair();
         long endKey = System.nanoTime();
-        long keyGenTime = (endKey - startKey) / 1_000_000;
+        double keyGenTime = (endKey - startKey) / 1e6;
 
         // Signing
         Signature signer = Signature.getInstance("MLDSA", "BC");
@@ -60,7 +60,7 @@ public class MLDSABenchmark {
         signer.update(MESSAGE);
         byte[] signature = signer.sign();
         long endSign = System.nanoTime();
-        long signTime = (endSign - startSign) / 1_000_000;
+        double signTime = (endSign - startSign) / 1e6;
 
         // Verification
         Signature verifier = Signature.getInstance("MLDSA", "BC");
@@ -70,7 +70,7 @@ public class MLDSABenchmark {
         verifier.update(MESSAGE);
         boolean valid = verifier.verify(signature);
         long endVerify = System.nanoTime();
-        long verifyTime = (endVerify - startVerify) / 1_000_000;
+        double verifyTime = (endVerify - startVerify) / 1e6;
 
         System.out.println("Public Key Generation Time: " + keyGenTime + " ms");
         System.out.println("Signing Time: " + signTime + " ms");

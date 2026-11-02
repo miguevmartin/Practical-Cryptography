@@ -1,7 +1,7 @@
 """
 Implementation of Decompose for coefficients in Rq^k
 
-Last modified: March 2026
+Last modified: November 2026
 Author: Original code by Gemini and adapted by Miguel Vargas Martin
 """
 
@@ -45,18 +45,18 @@ def decompose_vector_numpy(vector_coeffs, alpha, q):
 #vector_r = np.random.randint(0, q, size=(k, n))
 
 # --- Toy example ---
-q = 23
+q = 41
 k, n = 2, 4
-gamma2 = (q - 1) // 2
+gamma2 = (q - 1) // 8
 alpha = 2 * gamma2
 vector_r = np.array([
-    [10, 22, 5, 0],   # First polynomial
-    [15, 2, 19, 11]   # Second polynomial
+    [3, 14, 24, 38],   # First polynomial
+    [9, 21, 33, 5]     # Second polynomial
 ])
 
 # Process the entire vector at once
 v1, v0 = decompose_vector_numpy(vector_r, alpha, q)
-is_handled = np.any((v1 == 0) & (v0 == -1))
+is_handled = np.any((v1 == 0) & (vector_r % q > q - 1 - alpha // 2))
 
 # --- Verification ---
 # Reconstruct the vector: r = r1 * alpha + r0 (mod q)
