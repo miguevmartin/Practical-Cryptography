@@ -107,6 +107,11 @@ Each directory contains the programs referenced in the corresponding chapter of 
 
 ---
 
+## Errata
+Corrections to the original release of the book (March 2026) are listed in [ERRATA.md](ERRATA.md). The current version of the book already includes them.
+
+---
+
 ## Contributing
 Corrections, improvements, and bug reports are welcome.
 
