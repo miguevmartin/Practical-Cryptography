@@ -167,7 +167,7 @@ Idem (decryption can be parallelized, encryption cannot.)
 
 OFB enc		5.579 ms
 OFB dec		6.238 ms
-After many obervations, there is not a clear winner because enc and dec are identical.
+After many observations, there is not a clear winner because enc and dec are identical.
 
 CTR enc		2.907 ms
 CTR dec		2.576 ms
